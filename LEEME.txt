@@ -1,0 +1,34 @@
+NERO FONTA · web · paquete para subir
+=====================================
+
+CONTENIDO
+  index.html   La página completa (76 KB). Es la única página del sitio.
+  img/         36 imágenes (794 KB): logo, fotos de producto, piezas y foto del equipo.
+
+CÓMO SUBIRLO
+  1. Subir index.html y la carpeta img/ tal cual, juntos, a la raíz pública
+     del dominio (public_html, htdocs o www, según el hosting).
+  2. No hay compilación, ni base de datos, ni dependencias. Es HTML, CSS y JS
+     en un solo archivo, sin framework.
+  3. Las rutas de las imágenes son relativas (img/...), así que la carpeta img
+     debe quedar al lado de index.html.
+
+REQUISITOS
+  - HTTPS activo.
+  - Tipografías Bebas Neue, Inter y Space Mono: se cargan desde Google Fonts.
+    Si se prefiere no depender de Google, se pueden descargar y servir desde el
+    propio dominio (hay que cambiar el <link> del <head> y añadir un @font-face).
+
+PENDIENTE ANTES DE PUBLICAR (no está hecho)
+  - Favicon (icono de pestaña).
+  - Imagen de vista previa para WhatsApp y redes (etiquetas og:image y twitter:card)
+    y la URL definitiva en og:url y en <link rel="canonical">.
+  - En el JSON-LD del <head>, revisar la URL del sitio y el enlace a la ficha de
+    Google del negocio.
+  - Cuando haya reseñas reales de Google, sustituir el bloque de reseñas, que
+    ahora está vacío a propósito.
+
+DATOS QUE APARECEN EN LA WEB
+  Teléfono y WhatsApp: 636 04 81 13
+  Zona: Granada capital y área metropolitana
+  Promesa destacada: en tu casa en menos de 24 h desde la llamada
