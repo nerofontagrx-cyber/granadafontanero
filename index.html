@@ -377,6 +377,8 @@ footer a:hover{color:var(--ambar)}
 /* =================== SLIDER DE TRABAJOS =================== */
 
 .escena{position:relative;height:calc(5 * 85svh + 100svh)}
+/* en móvil cada servicio cambia con medio deslizamiento: si no, parece que la página se queda pillada */
+@media(max-width:899px){.escena{height:calc(5 * 40svh + 100svh)}}
 :where(.slider,.tambien) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .slider{--arriba:56px;--abajo:0px;position:sticky;top:var(--arriba);width:100%;height:calc(100vh - var(--arriba) - var(--abajo));height:calc(100svh - var(--arriba) - var(--abajo));overflow:hidden;padding:0}
@@ -467,6 +469,10 @@ footer a:hover{color:var(--ambar)}
 @media (max-width:760px){
   .pieza{width:calc(var(--w) * 1.7)}
   .pieza--baja{display:none}
+  /* los desenfoques y sombras animados son caros en el móvil y hacen que el scroll vaya a tirones */
+  .pieza img,.pieza--fondo img,.pieza--frente img{filter:none}
+  .pieza--fondo img{opacity:.55}
+  .producto img{filter:drop-shadow(0 20px 22px rgba(0,0,0,.45))}
 }
 
 /* ================= TAMBIÉN HACEMOS ================= */
@@ -525,6 +531,7 @@ footer a:hover{color:var(--ambar)}
 }
 
 </style>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
