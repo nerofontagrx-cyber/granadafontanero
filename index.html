@@ -377,8 +377,12 @@ footer a:hover{color:var(--ambar)}
 /* =================== SLIDER DE TRABAJOS =================== */
 
 .escena{position:relative;height:calc(5 * 85svh + 100svh)}
-/* en móvil cada servicio cambia con medio deslizamiento: si no, parece que la página se queda pillada */
-@media(max-width:899px){.escena{height:calc(5 * 40svh + 100svh)}}
+/* en móvil no se secuestra el scroll: la sección baja como el resto de la página y
+   los servicios se cambian con las miniaturas, deslizando de lado o solos cada pocos segundos */
+@media(max-width:899px){
+  .escena{height:auto}
+  .escena .slider{position:relative;top:auto;touch-action:pan-y}
+}
 :where(.slider,.tambien) button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .slider{--arriba:56px;--abajo:0px;position:sticky;top:var(--arriba);width:100%;height:calc(100vh - var(--arriba) - var(--abajo));height:calc(100svh - var(--arriba) - var(--abajo));overflow:hidden;padding:0}
@@ -1204,16 +1208,43 @@ document.getElementById('faqw').addEventListener('click',function(e){
     var i = Math.floor(recorrido / tramo());
     return Math.min(Math.max(i, 0), total - 1);
   }
+  /* en móvil el scroll no manda: la página baja libre y el slider cambia solo o con el dedo */
+  var MOVIL = window.matchMedia('(max-width: 899px)');
   var pedido = false;
   window.addEventListener('scroll', function(){
-    if(pedido) return; pedido = true;
+    if(MOVIL.matches || pedido) return; pedido = true;
     requestAnimationFrame(function(){ pedido = false; objetivo = indiceDelScroll(); revisar(); });
   }, {passive:true});
 
-  /* flechas, miniaturas y puntos mueven la página, y la página manda */
+  /* flechas, miniaturas y puntos: en ordenador mueven la página; en móvil cambian el servicio sin moverla */
   function llevarA(i){
+    if(MOVIL.matches){
+      objetivo = ((i % total) + total) % total;
+      revisar(); reiniciarAuto();
+      return;
+    }
     i = Math.min(Math.max(i, 0), total - 1);
     window.scrollTo({ top: escena.offsetTop + tramo() * i + tramo() * 0.5, behavior: quieto ? 'auto' : 'smooth' });
+  }
+
+  /* móvil: deslizar a los lados cambia de servicio; deslizar arriba/abajo es scroll normal */
+  var sliderEl = document.getElementById('slider');
+  var tx = 0, ty = 0;
+  sliderEl.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, {passive:true});
+  sliderEl.addEventListener('touchend', function(e){
+    if(!MOVIL.matches) return;
+    var dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+    if(Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy) * 1.5) llevarA(objetivo + (dx < 0 ? 1 : -1));
+  }, {passive:true});
+
+  /* móvil: pasa solo cada 4,5 s mientras se ve en pantalla */
+  var autoT = 0, visible = false;
+  function reiniciarAuto(){
+    clearInterval(autoT); autoT = 0;
+    if(MOVIL.matches && visible && !quieto) autoT = setInterval(function(){ llevarA(objetivo + 1); }, 4500);
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(en){ visible = en[0].isIntersecting; reiniciarAuto(); }, {threshold:.5}).observe(sliderEl);
   }
   document.getElementById('next').addEventListener('click', function(){ llevarA(objetivo + 1); });
   document.getElementById('prev').addEventListener('click', function(){ llevarA(objetivo - 1); });
@@ -1223,6 +1254,7 @@ document.getElementById('faqw').addEventListener('click',function(e){
 
   /* ---------- arranque: si se recarga a mitad, empieza en el que toca ---------- */
   function inicio(){
+    if(MOVIL.matches) return;
     var i = indiceDelScroll();
     if(i !== 0){
       [fondos, minis, puntos, infos, productos, grupos, marquesinas].forEach(function(g){ g[0].classList.remove('is-on'); g[i].classList.add('is-on'); });
