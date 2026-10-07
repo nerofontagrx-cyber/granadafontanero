@@ -544,6 +544,16 @@ footer a:hover{color:var(--ambar)}
   gtag('js', new Date());
 
   gtag('config', 'AW-18490551022');
+
+  // Conversion "Contacto": cualquier clic en WhatsApp o en llamar
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://wa.me"], a[href^="tel:"]');
+    if (!a) return;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18490551022/-nvZCJaWlZMdEO7V_fBE',
+      'transport_type': 'beacon'
+    });
+  });
 </script>
 </head>
 <body>
