@@ -244,6 +244,15 @@ tr.esp td{border-top:2px solid rgba(245,162,13,.35)}
 .mark{background:var(--ambar);padding:0 .1em}
 
 /* ---------- RESEÑAS ---------- */
+.gscore{display:flex;align-items:center;gap:22px;flex-wrap:wrap;margin-top:32px;padding:24px 26px;background:#fff;border:2px solid var(--tinta);border-radius:7px;box-shadow:0 5px 0 var(--tinta);color:var(--tinta);text-decoration:none;transition:transform .15s,box-shadow .15s}
+.gscore:hover{transform:translateY(-2px);box-shadow:0 7px 0 var(--tinta)}
+.gscore:active{transform:translateY(3px);box-shadow:0 2px 0 var(--tinta)}
+.gnum{font-family:'Bebas Neue',Impact,sans-serif;font-size:84px;line-height:.8;color:var(--azul)}
+.gtxt{display:flex;flex-direction:column;gap:6px}
+.gtxt .gstars{color:var(--ambar);font-size:26px;letter-spacing:3px;line-height:1}
+.gcount{font-weight:600;font-size:18px}
+.gver{margin-left:auto;font-weight:700;color:var(--azul);white-space:nowrap}
+@media(max-width:560px){.gscore{gap:16px;padding:20px}.gnum{font-size:68px}.gver{margin-left:0;width:100%}}
 .empty{border:2px dashed var(--gris-linea);border-radius:7px;padding:34px 24px;text-align:center;margin-top:36px;background:var(--hueso-gris)}
 .empty p{color:var(--gris);max-width:46ch;margin:10px auto 0;font-size:16px}
 .revcta{border:2px solid var(--tinta);border-radius:7px;margin-top:22px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--ambar-claro)}
@@ -812,16 +821,21 @@ footer a:hover{color:var(--ambar)}
 <section id="resenas" style="background:var(--hueso-gris);border-top:2px solid var(--tinta);border-bottom:2px solid var(--tinta)">
  <div class="wrap">
   <h2>Ellos ya nos han llamado.</h2>
-  <div class="empty">
-   <p class="mono" style="color:var(--gris)">Sección lista · pendiente de reseñas reales</p>
-   <p>Aquí irán las reseñas de Google con nombre, zona, estrellas y la referencia del trabajo. No inventamos ninguna: se cargan cuando existen.</p>
-  </div>
+  <a class="gscore" href="https://www.google.com/maps?cid=5894273422873205281" target="_blank" rel="noopener">
+   <span class="gnum">5,0</span>
+   <span class="gtxt">
+    <span class="gstars" aria-hidden="true">★★★★★</span>
+    <span class="gcount">Más de 20 opiniones en Google</span>
+    <span class="mono" style="color:var(--gris)">En nuestra ficha de Google Maps</span>
+   </span>
+   <span class="gver">Leer las opiniones →</span>
+  </a>
   <div class="revcta">
    <div>
     <h3>¿Ya has trabajado con nosotros?</h3>
     <p style="color:var(--gris);font-size:16px;margin-top:5px">Cuéntalo en Google. Nos ayuda más de lo que parece.</p>
    </div>
-   <a class="btn" href="#" onclick="return false">Dejar una reseña</a>
+   <a class="btn" href="https://www.google.com/maps?cid=5894273422873205281" target="_blank" rel="noopener">Dejar una reseña</a>
   </div>
  </div>
 </section>

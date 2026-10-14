@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tu parte de trabajo en 30 segundos · NERO FONTA · Fontanero en Granada</title>
+<meta name="description" content="Dinos qué le pasa a tu casa en 30 segundos y Juan te contesta por WhatsApp con precio cerrado antes de empezar. Fontanería en Granada en menos de 24 h.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#02258B">
+<link rel="icon" type="image/png" href="/img/favicon.png">
+<link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --azul:#02258B;--azul-hondo:#0E2264;--ambar:#F5A20D;--ambar-claro:#FAEEDA;
+  --hueso:#F7F3EA;--hueso-gris:#F1EFE8;--tinta:#14110F;--gris:#5F5E5A;
+  --gris-linea:#D3D1C7;--whatsapp:#25D366;--ambar-osc:#854F0B;
+  --seco:cubic-bezier(.2,0,.1,1);--muelle:cubic-bezier(.34,1.56,.64,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--hueso);color:var(--tinta);font-family:Inter,system-ui,sans-serif;font-size:17px;line-height:1.5;min-height:100svh;overflow-x:hidden;-webkit-tap-highlight-color:transparent}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+img{display:block;max-width:100%}
+:focus-visible{outline:3px solid var(--ambar);outline-offset:3px}
+.mono{font-family:'Space Mono',monospace;letter-spacing:.08em;text-transform:uppercase}
+h1,h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:uppercase;letter-spacing:.01em;line-height:.95}
+
+/* ---------- Cabecera ---------- */
+.top{position:sticky;top:0;z-index:30;background:var(--hueso);border-bottom:2px solid var(--tinta)}
+.top-in{max-width:1180px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.logo{position:relative;display:block;width:96px;line-height:0}
+.logo img{width:100%}
+.logo img+img{margin-top:-1.6%}
+.logo::after{content:"™";position:absolute;top:-2px;right:-9px;font:700 8px/1 Inter,sans-serif;color:var(--azul)}
+.top-r{display:flex;align-items:center;gap:10px}
+.gstars{display:flex;align-items:center;gap:6px;font-size:13px;font-weight:600;white-space:nowrap;color:var(--tinta);text-decoration:none}
+.gstars b{color:var(--ambar);letter-spacing:1px;font-size:14px}
+.tel{display:flex;align-items:center;gap:8px;background:var(--tinta);color:var(--hueso);text-decoration:none;font-weight:600;font-size:14px;padding:9px 14px;border-radius:999px}
+.tel svg{width:16px;height:16px}
+.tel span{display:none}
+@media(min-width:560px){.tel span{display:inline}.logo{width:110px}}
+@media(max-width:380px){.gstars span{display:none}}
+
+/* ---------- Escenario ---------- */
+.stage{max-width:1180px;margin:0 auto;padding:18px 16px 140px;display:grid;gap:22px}
+@media(min-width:960px){.stage{grid-template-columns:minmax(0,1fr) 380px;gap:48px;padding-top:40px;padding-bottom:60px;align-items:start}}
+
+.paso-head{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+.contador{font-size:11px;color:var(--gris)}
+.barra{flex:1;height:4px;background:var(--gris-linea);border-radius:4px;overflow:hidden}
+.barra i{display:block;height:100%;width:0;background:var(--azul);transition:width .6s var(--seco)}
+.atras{font-size:11px;color:var(--gris);display:flex;align-items:center;gap:4px;padding:6px 0;visibility:hidden}
+.atras.on{visibility:visible}
+
+.pregunta{font-size:clamp(40px,9vw,72px);margin:4px 0 6px}
+.pregunta em{font-style:normal;color:var(--azul)}
+.sub{color:var(--gris);font-size:16px;max-width:52ch;margin-bottom:22px}
+.sub b{color:var(--tinta)}
+.antetitulo{display:inline-block;font-size:10px;color:var(--azul);background:var(--ambar-claro);border:1.5px solid var(--azul);border-radius:999px;padding:5px 10px;margin:4px 0 6px}
+
+.paso{display:none}
+.paso.on{display:block;animation:entra .55s var(--seco) both}
+@keyframes entra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* ---------- Tarjetas de avería ---------- */
+.rejilla{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media(min-width:620px){.rejilla{grid-template-columns:repeat(5,minmax(0,1fr))}}
+.carta.carta-otro{background:var(--azul);color:#fff;border-color:var(--tinta)}
+.carta.carta-otro .mini{color:#c9d4f5}
+.carta-otro .foto::after{display:none}
+.otro-ico{width:76px;height:76px;border-radius:50%;background:var(--ambar);color:var(--azul);display:grid;place-items:center;font-family:'Bebas Neue',Impact,sans-serif;font-size:56px;line-height:1;box-shadow:0 0 0 0 rgba(245,162,13,.55);animation:latidoA 2.4s infinite}
+@keyframes latidoA{70%{box-shadow:0 0 0 16px rgba(245,162,13,0)}100%{box-shadow:0 0 0 0 rgba(245,162,13,0)}}
+.carta{position:relative;background:#fff;border:2px solid var(--tinta);border-radius:18px;padding:12px 10px 12px;text-align:left;overflow:hidden;
+  box-shadow:0 4px 0 var(--tinta);transition:transform .18s var(--seco),box-shadow .18s var(--seco),background .2s}
+.carta:hover{transform:translateY(-3px);box-shadow:0 7px 0 var(--tinta)}
+.carta:active,.carta.pulsada{transform:translateY(3px);box-shadow:0 1px 0 var(--tinta)}
+.carta .foto{height:112px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;position:relative}
+.carta .foto::after{content:"";position:absolute;bottom:2px;left:50%;width:56%;height:10px;transform:translateX(-50%);border-radius:50%;background:radial-gradient(rgba(20,17,15,.18),transparent 70%);animation:sombra 3.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.carta .foto img{max-height:100%;width:auto;object-fit:contain;filter:drop-shadow(0 6px 8px rgba(14,34,100,.14));animation:flota 3.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+@keyframes flota{0%,100%{transform:translateY(0) rotate(-1.5deg)}50%{transform:translateY(-7px) rotate(1.5deg)}}
+@keyframes sombra{0%,100%{transform:translateX(-50%) scale(1);opacity:1}50%{transform:translateX(-50%) scale(.82);opacity:.6}}
+.carta .nom{font-family:'Bebas Neue',Impact,sans-serif;font-size:24px;line-height:1;display:block}
+.carta .mini{font-size:12px;color:var(--gris);display:block;margin-top:2px}
+.carta.sel{background:var(--ambar-claro)}
+.atasco{margin-top:16px;font-size:14px;color:var(--gris);text-decoration:underline;text-underline-offset:3px}
+
+/* ---------- Opciones (problema, cuándo, zona) ---------- */
+.opciones{display:grid;gap:10px;max-width:560px}
+.opc{display:flex;align-items:center;gap:14px;width:100%;text-align:left;background:#fff;border:2px solid var(--tinta);border-radius:14px;padding:14px 16px;font-weight:600;font-size:17px;box-shadow:0 3px 0 var(--tinta);transition:transform .15s var(--seco),box-shadow .15s,background .2s}
+.opc:hover{transform:translateY(-2px);box-shadow:0 5px 0 var(--tinta)}
+.opc:active,.opc.pulsada{transform:translateY(2px);box-shadow:0 1px 0 var(--tinta);background:var(--ambar-claro)}
+.opc .ico{flex:none;width:38px;height:38px;border-radius:10px;background:var(--hueso-gris);display:grid;place-items:center;font-size:20px}
+.opc small{display:block;font-weight:400;font-size:13px;color:var(--gris)}
+.opc .flecha{margin-left:auto;opacity:.35;transition:transform .2s,opacity .2s}
+.opc:hover .flecha{opacity:1;transform:translateX(3px)}
+
+.reloj{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:640px}
+.reloj .opc{flex-direction:column;align-items:flex-start;gap:8px;padding:16px 14px}
+.reloj .opc .ico{width:44px;height:44px;font-size:22px}
+@media(max-width:520px){.reloj{grid-template-columns:1fr}.reloj .opc{flex-direction:row;align-items:center}}
+.reloj .opc.hot{border-color:var(--azul);box-shadow:0 3px 0 var(--azul)}
+.reloj .opc.hot .ico{background:var(--azul);color:#fff}
+
+.zonas-t{font-size:11px;color:var(--gris);margin:16px 0 8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;max-width:640px}
+.chip{background:#fff;border:2px solid var(--tinta);border-radius:999px;padding:9px 15px;font-weight:600;font-size:15px;transition:background .2s,color .2s,transform .15s}
+.chip:hover{transform:translateY(-1px)}
+.chip.sel{background:var(--azul);border-color:var(--azul);color:#fff}
+.campo{display:flex;flex-direction:column;gap:6px;max-width:420px;margin-top:22px}
+.campo label{font-size:11px;color:var(--gris)}
+.campo input,.campo textarea{font:inherit;font-size:18px;padding:13px 16px;border:2px solid var(--tinta);border-radius:12px;background:#fff;resize:vertical}
+.campo input:focus,.campo textarea:focus{outline:none;border-color:var(--azul);box-shadow:0 0 0 4px rgba(2,37,139,.12)}
+.sig{margin-top:22px;display:inline-flex;align-items:center;gap:10px;background:var(--azul);color:#fff;font-weight:700;font-size:17px;padding:16px 26px;border-radius:999px;box-shadow:0 4px 0 var(--azul-hondo);transition:transform .15s,box-shadow .15s,opacity .2s}
+.sig:disabled{opacity:.35;cursor:not-allowed}
+.sig:not(:disabled):active{transform:translateY(3px);box-shadow:0 1px 0 var(--azul-hondo)}
+
+/* ---------- Parte de trabajo (el ticket) ---------- */
+.parte-col{position:relative}
+@media(min-width:960px){.parte-col{position:sticky;top:96px}}
+.parte{position:relative;background:#FFFDF7;border:2px solid var(--tinta);border-radius:6px 6px 0 0;padding:20px 20px 26px;
+  box-shadow:0 18px 40px -18px rgba(14,34,100,.35);transform-origin:top center}
+.parte::after{content:"";position:absolute;left:-2px;right:-2px;bottom:-12px;height:12px;
+  background:linear-gradient(-45deg,transparent 8px,#FFFDF7 0) 0 0/16px 12px,linear-gradient(45deg,transparent 8px,#FFFDF7 0) 0 0/16px 12px;
+  filter:drop-shadow(0 2px 0 var(--tinta))}
+.parte-cab{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;border-bottom:2px dashed var(--gris-linea);padding-bottom:12px;margin-bottom:12px}
+.parte-cab h2{font-size:28px}
+.parte-cab .mono{font-size:10px;color:var(--gris);text-align:right;line-height:1.5}
+.ranura{display:flex;align-items:center;gap:12px;min-height:58px}
+.ranura .hueco{flex:none;width:58px;height:58px;border:2px dashed var(--gris-linea);border-radius:12px;display:grid;place-items:center;overflow:hidden;transition:border-color .3s,background .3s}
+.ranura .hueco img{max-height:48px;width:auto;opacity:0;transform:scale(.6);transition:opacity .25s,transform .45s var(--muelle)}
+.ranura.lleno .hueco{border-style:solid;border-color:var(--tinta);background:var(--ambar-claro)}
+.ranura.lleno .hueco img{opacity:1;transform:none}
+#ranuraTxt b{display:none}
+.lineas{display:grid;gap:9px;margin-top:12px}
+.linea{display:grid;grid-template-columns:84px 1fr;gap:10px;align-items:baseline;font-family:'Space Mono',monospace;font-size:13px}
+.linea .k{color:var(--gris);text-transform:uppercase;font-size:10px;letter-spacing:.1em}
+.linea .v{border-bottom:1px dotted var(--gris-linea);min-height:20px;padding-bottom:2px;color:var(--tinta);font-weight:700;word-break:break-word}
+.linea .v:empty::before{content:"················";color:var(--gris-linea);font-weight:400}
+.linea .v.escribiendo::after{content:"▍";color:var(--azul);animation:parpadeo .7s steps(1) infinite}
+@keyframes parpadeo{50%{opacity:0}}
+.parte-pie{margin-top:16px;padding-top:12px;border-top:2px dashed var(--gris-linea);display:flex;flex-wrap:wrap;gap:6px 14px;font-size:12px;color:var(--gris)}
+.parte-pie span::before{content:"✓ ";color:var(--azul);font-weight:700}
+
+/* Sello */
+.sello{position:absolute;right:14px;top:62px;width:132px;height:132px;border-radius:50%;border:4px double var(--azul);color:var(--azul);
+  display:grid;place-items:center;text-align:center;font-family:'Bebas Neue',Impact,sans-serif;font-size:22px;line-height:.95;transform:rotate(-14deg) scale(2.4);opacity:0;pointer-events:none;mix-blend-mode:multiply}
+.sello small{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em}
+.sello.on{animation:sellar .55s cubic-bezier(.2,.9,.3,1.2) forwards}
+@keyframes sellar{0%{opacity:0;transform:rotate(-14deg) scale(2.4)}60%{opacity:.95;transform:rotate(-14deg) scale(.92)}100%{opacity:.88;transform:rotate(-14deg) scale(1)}}
+.parte.golpe{animation:golpe .35s .3s var(--seco)}
+@keyframes golpe{0%,100%{transform:none}40%{transform:translateY(3px) scale(.99)}}
+
+/* Ticket compacto en móvil (arriba del paso) */
+@media(max-width:959px){
+  .stage{padding-top:0}
+  .parte-col{order:-1;position:sticky;top:var(--hh,64px);z-index:20;margin:0 -16px}
+  .parte{border-radius:0;border-left:0;border-right:0;border-top:0;padding:8px 16px 10px;box-shadow:none}
+  .parte-cab,.lineas,.parte-pie{display:none}
+  .ranura{min-height:0;gap:10px}
+  .ranura .hueco{width:44px;height:44px;border-radius:10px}
+  .ranura .hueco img{max-height:36px}
+  #ranuraTxt{font-size:10px!important;line-height:1.4}
+  #ranuraTxt b{display:block;font-family:'Bebas Neue',Impact,sans-serif;font-size:18px;letter-spacing:.02em;color:var(--tinta);font-weight:400}
+  .stage>.pasos{padding-top:6px}
+  /* Al final el parte se despliega entero */
+  body.final .parte-col{position:relative;top:0;margin:8px 0 0}
+  body.final .parte{border:2px solid var(--tinta);border-radius:6px 6px 0 0;padding:14px 16px 20px;box-shadow:0 18px 40px -18px rgba(14,34,100,.35)}
+  body.final .parte-cab,body.final .lineas{display:grid}
+  body.final .parte-cab{display:flex}
+  body.final .parte-cab h2{font-size:22px}
+  body.final .linea{grid-template-columns:70px 1fr;font-size:12px}
+  body.final .linea.vacia{display:none}
+  .sello{width:104px;height:104px;font-size:17px;top:auto;bottom:16px;right:12px}
+  body.final #ranuraTxt{font-size:0!important}
+  body.final .parte-cab .mono{display:block;font-size:9px}
+}
+
+/* Objeto volando hacia el parte */
+.vuelo{position:fixed;z-index:80;pointer-events:none;object-fit:contain;filter:drop-shadow(0 12px 18px rgba(14,34,100,.3));transition:transform .75s cubic-bezier(.5,0,.2,1),opacity .2s .65s}
+
+/* Onda de agua al tocar */
+.onda{position:absolute;border-radius:50%;pointer-events:none;background:radial-gradient(circle,rgba(2,37,139,.18) 0,rgba(2,37,139,.12) 40%,transparent 70%);transform:scale(0);animation:onda .7s var(--seco) forwards}
+@keyframes onda{to{transform:scale(1);opacity:0}}
+
+/* ---------- Final ---------- */
+.juan{display:flex;align-items:center;gap:14px;background:#fff;border:2px solid var(--tinta);border-radius:16px;padding:12px;max-width:560px;margin-bottom:18px}
+.juan img{width:64px;height:64px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:2px solid var(--ambar)}
+.juan b{display:block;font-size:16px}
+.juan span{font-size:14px;color:var(--gris)}
+.en-linea{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:#147a3d;font-weight:600}
+.en-linea::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--whatsapp);box-shadow:0 0 0 0 rgba(37,211,102,.6);animation:latido 1.8s infinite}
+@keyframes latido{70%{box-shadow:0 0 0 8px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+.cta{display:flex;flex-direction:column;gap:12px;max-width:560px}
+.wa{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;background:var(--whatsapp);color:#062b14;text-decoration:none;font-weight:700;font-size:19px;padding:19px 22px;border-radius:16px;border:2px solid var(--tinta);box-shadow:0 5px 0 var(--tinta);overflow:hidden;transition:transform .15s,box-shadow .15s}
+.wa:active{transform:translateY(4px);box-shadow:0 1px 0 var(--tinta)}
+.wa svg{width:26px;height:26px;flex:none}
+.wa::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:brillo 3.2s 1s infinite}
+@keyframes brillo{0%{left:-60%}35%,100%{left:130%}}
+.llamar{display:flex;align-items:center;justify-content:center;gap:10px;background:#fff;color:var(--tinta);text-decoration:none;font-weight:700;font-size:17px;padding:15px 20px;border-radius:16px;border:2px solid var(--tinta)}
+.llamar svg{width:20px;height:20px}
+.foto-tip{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:var(--gris);max-width:560px;margin-top:14px;background:var(--ambar-claro);border-radius:12px;padding:12px 14px}
+.otra{margin-top:18px;font-size:14px;color:var(--gris);text-decoration:underline;text-underline-offset:3px}
+
+/* Mensaje atasco */
+.aviso{max-width:560px;background:#fff;border:2px solid var(--tinta);border-radius:16px;padding:20px}
+.aviso p{margin-bottom:12px}
+
+/* Barra fija inferior en móvil (confianza) */
+.confia{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--azul);color:#fff;padding:10px 16px calc(10px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:16px;font-size:12px;font-weight:600}
+.confia span{display:flex;align-items:center;gap:5px;white-space:nowrap}
+.confia i{font-style:normal;color:var(--ambar)}
+@media(min-width:960px){.confia{display:none}}
+body.final .confia{display:none}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+<script defer src="/_vercel/insights/script.js"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18490551022"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18490551022');
+
+  // Conversion "Contacto": clic real en WhatsApp o en llamar,
+  // solo si la persona lleva al menos 5 s en la pagina (filtra toques accidentales y bots)
+  var gtagInicio = Date.now();
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="https://wa.me"], a[href^="tel:"]');
+    if (!a || !e.isTrusted || Date.now() - gtagInicio < 5000) return;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18490551022/-nvZCJaWlZMdEO7V_fBE',
+      'transport_type': 'beacon'
+    });
+  });
+</script>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="logo" href="/" aria-label="NERO FONTA, ir a la web">
+      <img src="/img/f7cb0cb6a7.png" alt="NERO">
+      <img src="/img/03b4deb3de.png" alt="FONTA">
+    </a>
+    <div class="top-r">
+      <a class="gstars" href="https://www.google.com/maps?cid=5894273422873205281" target="_blank" rel="noopener" aria-label="Valoración 5,0 en Google, ver opiniones"><b>★★★★★</b><span>5,0 · +20 opiniones</span></a>
+      <a class="tel" href="tel:+34636048113" aria-label="Llamar al 636 04 81 13">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+        <span>636 04 81 13</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<main class="stage">
+
+  <!-- ===== Pasos ===== -->
+  <section class="pasos" aria-live="polite">
+    <div class="paso-head">
+      <button class="atras mono" id="atras" type="button">← Atrás</button>
+      <div class="barra" aria-hidden="true"><i id="barra"></i></div>
+      <span class="contador mono" id="contador">01 / 04</span>
+    </div>
+
+    <!-- 1. Qué -->
+    <div class="paso on" data-paso="1">
+      <p class="antetitulo mono">Fontanero en Granada · NERO FONTA</p>
+      <h1 class="pregunta">¿Qué necesitas<br>arreglar <em>en casa?</em></h1>
+      <p class="sub"><b>Nuestro fontanero va a tu casa a arreglarlo</b> en menos de 24 h, con precio cerrado antes de empezar. Toca la avería y en 30 segundos tienes tu parte listo.</p>
+      <div class="rejilla" id="rejilla"></div>
+      <button class="atasco" type="button" id="btnAtasco">¿Es un atasco o un desagüe que no traga?</button>
+    </div>
+
+    <!-- 2. Problema -->
+    <div class="paso" data-paso="2">
+      <h1 class="pregunta" id="p2titulo">¿Qué le ocurre?</h1>
+      <p class="sub">Elige lo que más se parezca. Si no lo tienes claro, no pasa nada: Juan lo mira en persona.</p>
+      <div class="opciones" id="problemas"></div>
+    </div>
+
+    <!-- 3. Cuándo -->
+    <div class="paso" data-paso="3">
+      <h1 class="pregunta">¿Para <em>cuándo</em><br>lo necesitas?</h1>
+      <p class="sub">Vamos a tu casa en menos de 24 h en Granada y alrededores.</p>
+      <div class="reloj" id="cuando"></div>
+    </div>
+
+    <!-- 4. Dónde -->
+    <div class="paso" data-paso="4">
+      <h1 class="pregunta">¿Dónde <em>vives?</em></h1>
+      <p class="sub">Toca tu zona. Así Juan sabe cuándo le pilla de camino.</p>
+      <p class="zonas-t mono">Granada capital</p>
+      <div class="chips" id="zonasCap"></div>
+      <p class="zonas-t mono">Alrededores</p>
+      <div class="chips" id="zonasAlr"></div>
+      <div class="campo">
+        <label class="mono" for="nombre">Tu nombre (opcional)</label>
+        <input id="nombre" type="text" autocomplete="given-name" placeholder="Para saber cómo llamarte" maxlength="40">
+      </div>
+      <button class="sig" id="terminar" type="button" disabled>Ver mi parte de trabajo →</button>
+    </div>
+
+    <!-- 5. Final -->
+    <div class="paso" data-paso="5">
+      <h1 class="pregunta">Tu parte está<br><em>listo.</em></h1>
+      <p class="sub">Envíaselo a Juan por WhatsApp. Va todo escrito, solo tienes que darle a enviar.</p>
+      <div class="juan">
+        <img src="/img/6f116890e1.jpg" alt="Juan, de NERO FONTA, trabajando en un baño">
+        <div>
+          <b>Juan · NERO FONTA</b>
+          <span>Te contesta él mismo, no una centralita.</span><br>
+          <span class="en-linea" id="enLinea">Disponible ahora</span>
+        </div>
+      </div>
+      <div class="cta">
+        <a class="wa" id="btnWa" href="https://wa.me/34636048113" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.2-3.6-8.4z"/></svg>
+          Enviar mi parte a Juan
+        </a>
+        <a class="llamar" href="tel:+34636048113">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+          Prefiero llamar · 636 04 81 13
+        </a>
+      </div>
+      <p class="foto-tip"><span aria-hidden="true">📸</span><span><b>Truco:</b> después de enviarlo, mándale una foto de la avería. Así te da el precio cerrado mucho más rápido.</span></p>
+      <button class="otra" type="button" id="otraVez">Empezar otro parte</button>
+    </div>
+
+    <!-- Otro problema: directo a contactar -->
+    <div class="paso" data-paso="otro">
+      <h1 class="pregunta">Cuéntaselo<br>a <em>Juan.</em></h1>
+      <p class="sub">Si quieres, escríbelo en una frase. Si no, dale directamente al botón y se lo explicas por WhatsApp o por teléfono.</p>
+      <div class="campo" style="margin-top:0;max-width:560px">
+        <label class="mono" for="otroTxt">¿Qué te pasa? (opcional)</label>
+        <textarea id="otroTxt" rows="3" maxlength="300" placeholder="Ej.: la llave de paso de la cocina gotea"></textarea>
+      </div>
+      <div class="cta" style="margin-top:18px">
+        <a class="wa" id="otroWa" href="https://wa.me/34636048113" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.8-.9-2-1-.3-.1-.5-.1-.7.1-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-.3-.1-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5.1 4.5 2.5 1 3 .8 3.6.8.6-.1 1.8-.7 2-1.5.3-.7.3-1.3.2-1.5-.1-.1-.3-.2-.6-.3zM12 21.8c-1.8 0-3.5-.5-5-1.4l-.4-.2-3.7 1 1-3.6-.2-.4A9.8 9.8 0 1 1 12 21.8zm8.4-18.2A11.8 11.8 0 0 0 1.8 17.9L.1 24l6.3-1.6A11.8 11.8 0 0 0 24 12c0-3.2-1.2-6.2-3.6-8.4z"/></svg>
+          Escribir a Juan por WhatsApp
+        </a>
+        <a class="llamar" href="tel:+34636048113">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.6a1 1 0 0 1-.25 1z"/></svg>
+          Llamar ahora · 636 04 81 13
+        </a>
+      </div>
+      <p class="foto-tip"><span aria-hidden="true">📸</span><span>Si puedes, mándale una foto por WhatsApp: así te dice el precio cerrado mucho antes.</span></p>
+    </div>
+
+    <!-- Atasco -->
+    <div class="paso" data-paso="atasco">
+      <h1 class="pregunta">Eso no<br><em>lo hacemos.</em></h1>
+      <div class="aviso">
+        <p>Preferimos decírtelo claro: <b>los atascos y desatascos no son lo nuestro</b>. Para eso te conviene una empresa de desatascos con máquina.</p>
+        <p>Si además tienes otra cosa (un grifo, la cisterna, un termo…), aquí sí te ayudamos.</p>
+        <button class="sig" type="button" id="volverAtasco">Tengo otra avería →</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Parte de trabajo ===== -->
+  <aside class="parte-col" aria-label="Tu parte de trabajo">
+    <div class="parte" id="parte">
+      <div class="parte-cab">
+        <h2>Parte de trabajo</h2>
+        <div class="mono" id="parteFecha">NERO FONTA<br>Granada</div>
+      </div>
+      <div class="ranura" id="ranura">
+        <div class="hueco"><img id="ranuraImg" alt=""></div>
+        <div class="mono" style="font-size:11px;color:var(--gris)" id="ranuraTxt"><b>Tu parte de trabajo</b>Esperando tu avería…</div>
+      </div>
+      <div class="lineas">
+        <div class="linea vacia" data-k="que"><span class="k">Trabajo</span><span class="v"></span></div>
+        <div class="linea vacia" data-k="problema"><span class="k">Avería</span><span class="v"></span></div>
+        <div class="linea vacia" data-k="cuando"><span class="k">Cuándo</span><span class="v"></span></div>
+        <div class="linea vacia" data-k="zona"><span class="k">Zona</span><span class="v"></span></div>
+        <div class="linea vacia" data-k="nombre"><span class="k">Cliente</span><span class="v"></span></div>
+      </div>
+      <div class="parte-pie">
+        <span>Precio cerrado antes de empezar</span>
+        <span>En tu casa en menos de 24 h</span>
+        <span>Te atiende un profesional</span>
+      </div>
+      <div class="sello" id="sello"><div><small>NERO FONTA</small>LISTO<br>PARA JUAN<small>Granada</small></div></div>
+    </div>
+  </aside>
+</main>
+
+<div class="confia" aria-hidden="true">
+  <span><i>★</i> 5,0 Google</span>
+  <span><i>€</i> Precio cerrado</span>
+  <span><i>⏱</i> Menos de 24 h</span>
+</div>
+
+<script>
+(function(){
+  var TEL = '34636048113';
+
+  var AVERIAS = [
+    {id:'grifo', nom:'Grifo', mini:'Gotea o hay que cambiarlo', img:'/img/4973048ed3.webp',
+     probs:[['💧','Gotea o no cierra bien'],['🔁','Cambiarlo por uno nuevo'],['🚿','Grifo de ducha o bañera'],['🕹️','El mando está duro o roto'],['🌀','Sale poca agua o va a tirones'],['❓','Otra cosa']]},
+    {id:'cisterna', nom:'Cisterna', mini:'No para o no carga', img:'/img/6f08b7a30e.webp',
+     probs:[['🌊','No para de echar agua'],['🚫','No carga o tarda mucho'],['🔘','El pulsador no funciona'],['🔧','Cambiar el mecanismo completo'],['💧','Pierde agua por abajo'],['❓','Otra cosa']]},
+    {id:'termo', nom:'Termo', mini:'No calienta o pierde agua', img:'/img/2a0b0f1658.webp',
+     probs:[['💧','Pierde agua'],['🔁','Cambiarlo por uno nuevo'],['🥶','No calienta o calienta poco'],['➕','Instalar un termo nuevo'],['🫧','Gotea la válvula de seguridad'],['❓','Otra cosa']]},
+    {id:'wc', nom:'Inodoro', mini:'Cambio o fuga en la base', img:'/img/3e14e465d2.webp',
+     probs:[['🔁','Cambiarlo por uno nuevo'],['💧','Pierde agua por la base'],['↔️','Se mueve o está suelto'],['🚽','Cambiar la tapa'],['❓','Otra cosa']]},
+    {id:'lavabo', nom:'Lavabo', mini:'O fregadero', img:'/img/b381366d31.webp',
+     probs:[['🔁','Cambiar el lavabo por uno nuevo'],['🍽️','Cambiar el fregadero por uno nuevo'],['💧','Pierde agua por debajo'],['🔩','Cambiar el sifón'],['🪛','Está suelto o se mueve'],['❓','Otra cosa']]},
+    {id:'fuga', nom:'Fuga', mini:'Pequeña fuga de agua', img:'/img/255c56bceb.webp',
+     probs:[['🍽️','Debajo del fregadero'],['🛁','En el baño'],['🚰','En una llave de paso'],['🧵','En una tubería que se ve'],['🔎','No sé de dónde viene']]},
+    {id:'lavadora', nom:'Lavadora', mini:'O lavavajillas', img:'/img/dc2ad94f1e.webp',
+     probs:[['🧺','Instalar una lavadora'],['🍽️','Instalar un lavavajillas'],['🪢','Manguera pinchada o rota'],['💧','Pierde agua por la toma'],['🚰','Cambiar el grifo de la lavadora'],['❓','Otra cosa']]},
+    {id:'latiguillo', nom:'Latiguillos', mini:'Sifones y llaves', img:'/img/18c46e4095.webp',
+     probs:[['🔁','Cambiar latiguillos'],['🔩','Cambiar un sifón'],['🚰','Cambiar una llave de paso'],['💧','Gotean por la unión'],['❓','Otra cosa']]},
+    {id:'contador', nom:'Contador', mini:'Preparar la instalación', img:'/img/contador.svg',
+     probs:[['🏠','Preparar la instalación para el contador'],['🔑','Piso nuevo o alta de agua'],['🚰','Cambiar la llave junto al contador'],['💧','Fuga cerca del contador'],['❓','Otra cosa']]}
+  ];
+  var CUANDO = [
+    ['⚡','Lo antes posible','Hoy o mañana',true],
+    ['📅','Esta semana','Cuando os venga bien',false],
+    ['🧘','Sin prisa','Solo quiero precio',false]
+  ];
+  var CAPITAL = ['Centro','Zaidín','Chana','Albaicín','Realejo','Ronda','Beiro','Norte','Genil'];
+  var ALREDEDORES = ['Armilla','Maracena','Ogíjares','La Zubia','Huétor Vega','Cájar','Churriana','Otra zona'];
+
+  var estado = {};
+  var pasoActual = 1, historial = [];
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var $ = function(s,c){return (c||document).querySelector(s)};
+  var $$ = function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  // Fecha del parte
+  var hoy = new Date();
+  var meses = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
+  $('#parteFecha').innerHTML = 'Nº ' + String(hoy.getDate()).padStart(2,'0') + (hoy.getMonth()+1) + String(hoy.getHours()).padStart(2,'0') + String(hoy.getMinutes()).padStart(2,'0') + '<br>' + hoy.getDate() + ' ' + meses[hoy.getMonth()] + ' · Granada';
+
+  // Horario de Juan (aprox.): 7-22h todos los días
+  var h = hoy.getHours();
+  if (h < 7 || h >= 22) $('#enLinea').textContent = 'Te contesta a primera hora';
+
+  // --- Onda de agua ---
+  function onda(el, ev){
+    if (reduce) return;
+    var r = el.getBoundingClientRect();
+    var d = Math.max(r.width, r.height) * 2.2;
+    var x = (ev && ev.clientX ? ev.clientX : r.left + r.width/2) - r.left - d/2;
+    var y = (ev && ev.clientY ? ev.clientY : r.top + r.height/2) - r.top - d/2;
+    var o = document.createElement('span');
+    o.className = 'onda';
+    o.style.cssText = 'width:'+d+'px;height:'+d+'px;left:'+x+'px;top:'+y+'px';
+    el.appendChild(o);
+    setTimeout(function(){ o.remove(); }, 750);
+  }
+
+  // --- Escribir a máquina en el parte ---
+  function escribir(k, texto){
+    var linea = $('.linea[data-k="'+k+'"]');
+    var v = $('.v', linea);
+    linea.classList.remove('vacia');
+    clearInterval(v._t);
+    if (reduce) { v.textContent = texto; return; }
+    v.textContent = '';
+    v.classList.add('escribiendo');
+    var i = 0;
+    v._t = setInterval(function(){
+      i++;
+      v.textContent = texto.slice(0, i);
+      if (i >= texto.length) { clearInterval(v._t); v.classList.remove('escribiendo'); }
+    }, 26);
+  }
+  function borrar(k){
+    var linea = $('.linea[data-k="'+k+'"]');
+    var v = $('.v', linea);
+    clearInterval(v._t);
+    v.textContent = '';
+    v.classList.remove('escribiendo');
+    linea.classList.add('vacia');
+  }
+
+  // --- El dibujo vuela hasta el parte ---
+  function volar(imgEl, done){
+    var destino = $('#ranura .hueco');
+    var a = imgEl.getBoundingClientRect(), b = destino.getBoundingClientRect();
+    if (reduce || !a.width || b.bottom < 0) { done(); return; }
+    var c = imgEl.cloneNode();
+    c.className = 'vuelo';
+    c.style.cssText = 'left:'+a.left+'px;top:'+a.top+'px;width:'+a.width+'px;height:'+a.height+'px';
+    document.body.appendChild(c);
+    var s = Math.min(b.width / a.width, b.height / a.height) * .82;
+    var dx = (b.left + b.width/2) - (a.left + a.width/2);
+    var dy = (b.top + b.height/2) - (a.top + a.height/2);
+    requestAnimationFrame(function(){
+      c.style.transform = 'translate('+dx+'px,'+dy+'px) scale('+s+') rotate(-8deg)';
+      c.style.opacity = '0';
+    });
+    setTimeout(function(){ c.remove(); done(); }, 760);
+  }
+
+  // --- Navegación ---
+  var ORDEN = ['1','2','3','4','5'];
+  function ir(paso, atras){
+    if (!atras && pasoActual !== paso) historial.push(pasoActual);
+    pasoActual = paso;
+    $$('.paso').forEach(function(p){ p.classList.toggle('on', p.dataset.paso === String(paso)); });
+    var n = ORDEN.indexOf(String(paso));
+    var num = n < 0 ? 1 : Math.min(n+1, 4);
+    var fin = paso === 5 || paso === 'otro';
+    $('#contador').textContent = paso === 5 ? 'LISTO' : paso === 'otro' ? 'CONTACTO' : ('0'+num+' / 04');
+    $('#barra').style.width = (fin ? 100 : (num-1)/4*100 + 12) + '%';
+    $('#atras').classList.toggle('on', historial.length > 0 && paso !== 5);
+    document.body.classList.toggle('final', paso === 5);
+    if (window.innerWidth < 960) window.scrollTo({top:0, behavior: reduce ? 'auto' : 'smooth'});
+  }
+  $('#atras').addEventListener('click', function(){
+    var p = historial.pop();
+    if (p === undefined) return;
+    if (pasoActual === 2 || pasoActual === 'atasco') { /* nada que borrar aún */ }
+    if (p === 1) { borrar('que'); borrar('problema'); delete estado.averia; delete estado.problema; vaciarRanura(); }
+    if (p === 2) { borrar('problema'); delete estado.problema; resumen(); }
+    if (p === 3) { borrar('cuando'); delete estado.cuando; resumen(); }
+    ir(p, true);
+  });
+
+  // Resumen de la tira del parte (en móvil es lo único que se ve)
+  function resumen(){
+    var partes = [estado.problema, estado.cuando && estado.cuando.split(' (')[0], estado.zona].filter(Boolean);
+    var titulo = estado.averia ? estado.averia.nom : 'Tu parte de trabajo';
+    var txt = partes.length ? partes.join(' · ') : (estado.averia ? 'Anotado. Sigue…' : 'Esperando tu avería…');
+    $('#ranuraTxt').innerHTML = '<b>' + titulo + '</b>' + txt;
+  }
+  function vaciarRanura(){
+    $('#ranura').classList.remove('lleno');
+    $$('.carta').forEach(function(c){ c.classList.remove('sel'); });
+    resumen();
+  }
+  function medirCabecera(){
+    document.documentElement.style.setProperty('--hh', $('.top').offsetHeight + 'px');
+  }
+  medirCabecera();
+  window.addEventListener('resize', medirCabecera);
+
+  // --- Paso 1: tarjetas ---
+  var rej = $('#rejilla');
+  AVERIAS.forEach(function(a, i){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'carta';
+    b.style.setProperty('--d', (-i*0.45)+'s');
+    b.innerHTML = '<span class="foto"><img src="'+a.img+'" alt="" loading="'+(i<4?'eager':'lazy')+'"></span><span class="nom">'+a.nom+'</span><span class="mini">'+a.mini+'</span>';
+    b.addEventListener('click', function(ev){
+      onda(b, ev);
+      $$('.carta').forEach(function(c){ c.classList.remove('sel'); });
+      b.classList.add('sel','pulsada');
+      setTimeout(function(){ b.classList.remove('pulsada'); }, 160);
+      estado.averia = a;
+      $('#ranuraImg').src = a.img;
+      volar($('img', b), function(){
+        $('#ranura').classList.add('lleno');
+        resumen();
+      });
+      escribir('que', a.nom);
+      montarProblemas(a);
+      setTimeout(function(){ ir(2); }, reduce ? 0 : 520);
+    });
+    rej.appendChild(b);
+  });
+
+  // Tarjeta "Otro problema": directo a contactar
+  var otro = document.createElement('button');
+  otro.type = 'button';
+  otro.className = 'carta carta-otro';
+  otro.innerHTML = '<span class="foto"><span class="otro-ico" aria-hidden="true">?</span></span><span class="nom">Otro problema</span><span class="mini">Cuéntaselo a Juan</span>';
+  otro.addEventListener('click', function(ev){
+    onda(otro, ev);
+    otro.classList.add('pulsada');
+    setTimeout(function(){ otro.classList.remove('pulsada'); }, 160);
+    escribir('que', 'Otro problema');
+    estado.averia = {nom:'Otro problema', img:''};
+    resumen();
+    ir('otro');
+    setTimeout(function(){ $('#otroTxt').focus({preventScroll:true}); }, 400);
+  });
+  rej.appendChild(otro);
+
+  $('#btnAtasco').addEventListener('click', function(){ ir('atasco'); });
+  $('#volverAtasco').addEventListener('click', function(){ historial = []; ir(1, true); });
+
+  // --- Paso 2: problema ---
+  function montarProblemas(a){
+    $('#p2titulo').innerHTML = '¿Qué le pasa<br>al <em>' + a.nom.toLowerCase() + '?</em>';
+    if (a.id === 'termo') $('#p2titulo').innerHTML = '¿Qué le pasa<br>al <em>termo?</em>';
+    if (a.id === 'fuga') $('#p2titulo').innerHTML = '¿Dónde está<br>la <em>fuga?</em>';
+    if (a.id === 'cisterna') $('#p2titulo').innerHTML = '¿Qué le pasa<br>a la <em>cisterna?</em>';
+    if (a.id === 'latiguillo') $('#p2titulo').innerHTML = '¿Qué hay que<br><em>cambiar?</em>';
+    var cont = $('#problemas');
+    cont.innerHTML = '';
+    a.probs.forEach(function(p){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'opc';
+      b.style.position = 'relative';
+      b.style.overflow = 'hidden';
+      b.innerHTML = '<span class="ico">'+p[0]+'</span><span>'+p[1]+'</span><span class="flecha">→</span>';
+      b.addEventListener('click', function(ev){
+        onda(b, ev);
+        b.classList.add('pulsada');
+        estado.problema = p[1]; resumen();
+        escribir('problema', p[1]);
+        setTimeout(function(){ b.classList.remove('pulsada'); ir(3); }, reduce ? 0 : 280);
+      });
+      cont.appendChild(b);
+    });
+  }
+
+  // --- Paso 3: cuándo ---
+  var cu = $('#cuando');
+  CUANDO.forEach(function(c){
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opc' + (c[3] ? ' hot' : '');
+    b.style.position = 'relative';
+    b.style.overflow = 'hidden';
+    b.innerHTML = '<span class="ico">'+c[0]+'</span><span>'+c[1]+'<small>'+c[2]+'</small></span>';
+    b.addEventListener('click', function(ev){
+      onda(b, ev);
+      b.classList.add('pulsada');
+      estado.cuando = c[1] + ' (' + c[2].toLowerCase() + ')'; resumen();
+      escribir('cuando', c[1]);
+      setTimeout(function(){ b.classList.remove('pulsada'); ir(4); }, reduce ? 0 : 280);
+    });
+    cu.appendChild(b);
+  });
+
+  // --- Paso 4: zona y nombre ---
+  function chips(lista, cont){
+    lista.forEach(function(z){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'chip';
+      b.textContent = z;
+      b.addEventListener('click', function(){
+        $$('.chip').forEach(function(x){ x.classList.remove('sel'); });
+        b.classList.add('sel');
+        estado.zona = z; resumen();
+        escribir('zona', z);
+        $('#terminar').disabled = false;
+        var r = $('#terminar').getBoundingClientRect();
+        if (r.bottom > window.innerHeight - 70) $('#terminar').scrollIntoView({behavior: reduce ? 'auto' : 'smooth', block: 'center'});
+      });
+      cont.appendChild(b);
+    });
+  }
+  chips(CAPITAL, $('#zonasCap'));
+  chips(ALREDEDORES, $('#zonasAlr'));
+
+  var tNombre;
+  $('#nombre').addEventListener('input', function(e){
+    var v = e.target.value.trim();
+    estado.nombre = v;
+    clearTimeout(tNombre);
+    tNombre = setTimeout(function(){ v ? escribir('nombre', v) : borrar('nombre'); }, 250);
+  });
+  $('#nombre').addEventListener('keydown', function(e){
+    if (e.key === 'Enter' && !$('#terminar').disabled) { e.preventDefault(); $('#terminar').click(); }
+  });
+
+  // --- Final: sello y WhatsApp ---
+  $('#terminar').addEventListener('click', function(){
+    if (estado.nombre) escribir('nombre', estado.nombre);
+    var m = 'Hola Juan 👋 Te escribo desde la web de NERO FONTA.\n\n' +
+      '🔧 Trabajo: ' + estado.averia.nom + '\n' +
+      '⚠️ Avería: ' + estado.problema + '\n' +
+      '⏱️ Para: ' + estado.cuando + '\n' +
+      '📍 Zona: ' + estado.zona + '\n' +
+      (estado.nombre ? '🙋 Me llamo ' + estado.nombre + '\n' : '') +
+      '\n¿Me dices precio cerrado? Ahora te mando una foto.';
+    $('#btnWa').href = 'https://wa.me/' + TEL + '?text=' + encodeURIComponent(m);
+    ir(5);
+    var sello = $('#sello'), parte = $('#parte');
+    sello.classList.remove('on'); parte.classList.remove('golpe');
+    void sello.offsetWidth;
+    setTimeout(function(){
+      sello.classList.add('on'); parte.classList.add('golpe');
+      if (navigator.vibrate && !reduce) navigator.vibrate(30);
+    }, reduce ? 0 : 450);
+  });
+
+  // "Otro problema": mensaje con lo que escriba (o genérico)
+  function msgOtro(){
+    var t = $('#otroTxt').value.trim();
+    return 'Hola Juan 👋 Te escribo desde la web de NERO FONTA.\n\n' +
+      (t ? '🔧 Tengo este problema: ' + t : '🔧 Tengo un problema de fontanería y quería consultarte.') +
+      '\n\n¿Me dices cuándo podrías venir y precio? Ahora te mando una foto.';
+  }
+  function actualizarOtro(){ $('#otroWa').href = 'https://wa.me/' + TEL + '?text=' + encodeURIComponent(msgOtro()); }
+  $('#otroTxt').addEventListener('input', function(e){
+    var v = e.target.value.trim();
+    clearTimeout(tNombre);
+    tNombre = setTimeout(function(){ escribir('problema', v || 'Otro problema'); estado.problema = v; resumen(); }, 300);
+    actualizarOtro();
+  });
+  actualizarOtro();
+
+  $('#otraVez').addEventListener('click', function(){
+    estado = {}; historial = [];
+    ['que','problema','cuando','zona','nombre'].forEach(borrar);
+    vaciarRanura();
+    $$('.chip').forEach(function(x){ x.classList.remove('sel'); });
+    $('#nombre').value = '';
+    $('#otroTxt').value = ''; actualizarOtro();
+    $('#terminar').disabled = true;
+    $('#sello').classList.remove('on');
+    ir(1, true);
+  });
+
+  ir(1, true);
+})();
+</script>
+</body>
+</html>
