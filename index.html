@@ -253,6 +253,17 @@ tr.esp td{border-top:2px solid rgba(245,162,13,.35)}
 .gcount{font-weight:600;font-size:18px}
 .gver{margin-left:auto;font-weight:700;color:var(--azul);white-space:nowrap}
 @media(max-width:560px){.gscore{gap:16px;padding:20px}.gnum{font-size:68px}.gver{margin-left:0;width:100%}}
+.opis{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+@media(max-width:900px){.opis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.opis{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:18px -20px 0;padding:0 20px 8px;gap:12px}.opi{flex:0 0 82%;scroll-snap-align:start}}
+.opi{background:#fff;border:2px solid var(--tinta);border-radius:7px;padding:18px;display:flex;flex-direction:column;gap:8px}
+.opi .opi-cab{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.opi .opi-cab b{font-size:17px}
+.opi .est{color:var(--ambar);letter-spacing:2px;font-size:15px}
+.opi .mono{color:var(--azul)}
+.opi p:last-child{font-size:16px;line-height:1.55;color:var(--tinta)}
+.opis-nota{margin-top:12px;font-size:14px;color:var(--gris)}
+.opis-nota a{color:var(--azul);font-weight:600}
 .empty{border:2px dashed var(--gris-linea);border-radius:7px;padding:34px 24px;text-align:center;margin-top:36px;background:var(--hueso-gris)}
 .empty p{color:var(--gris);max-width:46ch;margin:10px auto 0;font-size:16px}
 .revcta{border:2px solid var(--tinta);border-radius:7px;margin-top:22px;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;background:var(--ambar-claro)}
@@ -830,6 +841,15 @@ footer a:hover{color:var(--ambar)}
    </span>
    <span class="gver">Leer las opiniones →</span>
   </a>
+  <div class="opis">
+   <article class="opi"><div class="opi-cab"><b>Jesús P.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Fuga y manguito picado</p><p>Destaca que vino enseguida, que dejó todo limpio y que le fue explicando cada paso. Le dio mucha confianza.</p></article>
+   <article class="opi"><div class="opi-cab"><b>Luis B.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Instalación de termo</p><p>Todo rápido y profesional. Resalta el trato de Juan: atento y resolutivo.</p></article>
+   <article class="opi"><div class="opi-cab"><b>José G.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Cambio de lavabo</p><p>Lavabo cambiado muy rápido y sin complicaciones. Dice que volverá a llamarnos.</p></article>
+   <article class="opi"><div class="opi-cab"><b>Belén L.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Cambio de termo</p><p>Le cambiamos el termo y le solucionamos el problema. Lo resume en dos palabras: profesional y eficaz.</p></article>
+   <article class="opi"><div class="opi-cab"><b>Francisco M.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Grifo complicado</p><p>Un grifo que se le había complicado. Valora que fuimos resolutivos y que le costó menos de lo que esperaba.</p></article>
+   <article class="opi"><div class="opi-cab"><b>Jaime D.</b><span class="est" aria-label="5 estrellas">★★★★★</span></div><p class="mono">Reparación</p><p>Llegamos poco después de su llamada y lo arreglamos rápido. Nos recomienda al cien por cien.</p></article>
+  </div>
+  <p class="opis-nota">Resumen de opiniones reales de nuestra ficha de Google. <a href="https://www.google.com/maps?cid=5894273422873205281" target="_blank" rel="noopener">Léelas completas en Google →</a></p>
   <div class="revcta">
    <div>
     <h3>¿Ya has trabajado con nosotros?</h3>

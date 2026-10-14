@@ -85,6 +85,16 @@ h1,h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:
 .carta .nom{font-family:'Bebas Neue',Impact,sans-serif;font-size:24px;line-height:1;display:block}
 .carta .mini{font-size:12px;color:var(--gris);display:block;margin-top:2px}
 .carta.sel{background:var(--ambar-claro)}
+.opis{margin-top:30px;padding-top:22px;border-top:2px dashed var(--gris-linea)}
+.opis-t{font-size:11px;color:var(--gris);margin-bottom:10px}
+.opis-t b{color:var(--ambar-osc)}
+.opis-fila{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media(max-width:720px){.opis-fila{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -16px;padding:0 16px 6px}.opi{flex:0 0 78%;scroll-snap-align:start}}
+.opi{background:#fff;border:2px solid var(--tinta);border-radius:14px;padding:14px;font-size:15px}
+.opi .est{color:var(--ambar);letter-spacing:1px;font-size:13px}
+.opi .mono{display:block;font-size:10px;color:var(--azul);margin:4px 0 6px}
+.opi p{color:var(--tinta);line-height:1.45}
+.opis-link{display:inline-block;margin-top:10px;font-size:13px;color:var(--azul);font-weight:600;text-decoration:none}
 .atasco{margin-top:16px;font-size:14px;color:var(--gris);text-decoration:underline;text-underline-offset:3px}
 
 /* ---------- Opciones (problema, cuándo, zona) ---------- */
@@ -148,6 +158,7 @@ h1,h2{font-family:'Bebas Neue',Impact,sans-serif;font-weight:400;text-transform:
 .sello{position:absolute;right:14px;top:62px;width:132px;height:132px;border-radius:50%;border:4px double var(--azul);color:var(--azul);
   display:grid;place-items:center;text-align:center;font-family:'Bebas Neue',Impact,sans-serif;font-size:22px;line-height:.95;transform:rotate(-14deg) scale(2.4);opacity:0;pointer-events:none;mix-blend-mode:multiply}
 .sello small{display:block;font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em}
+.sello:not(.on){display:none}
 .sello.on{animation:sellar .55s cubic-bezier(.2,.9,.3,1.2) forwards}
 @keyframes sellar{0%{opacity:0;transform:rotate(-14deg) scale(2.4)}60%{opacity:.95;transform:rotate(-14deg) scale(.92)}100%{opacity:.88;transform:rotate(-14deg) scale(1)}}
 .parte.golpe{animation:golpe .35s .3s var(--seco)}
@@ -277,6 +288,15 @@ body.final .confia{display:none}
       <p class="sub"><b>Nuestro fontanero va a tu casa a arreglarlo</b> lo antes posible. Toca la avería y en 30 segundos tienes tu parte listo.</p>
       <div class="rejilla" id="rejilla"></div>
       <button class="atasco" type="button" id="btnAtasco">¿Es un atasco o un desagüe que no traga?</button>
+      <section class="opis" aria-label="Opiniones de clientes en Google">
+        <p class="mono opis-t">Lo que dicen en Google · <b>5,0 ★</b></p>
+        <div class="opis-fila">
+          <article class="opi"><b>Luis B.</b> <span class="est">★★★★★</span><span class="mono">Instalación de termo</span><p>Rápido y profesional. Destaca a Juan: atento y resolutivo.</p></article>
+          <article class="opi"><b>Jesús P.</b> <span class="est">★★★★★</span><span class="mono">Fuga y manguito</span><p>Vino enseguida, lo dejó todo limpio y le explicó cada paso.</p></article>
+          <article class="opi"><b>José G.</b> <span class="est">★★★★★</span><span class="mono">Cambio de lavabo</span><p>Muy rápido y sin complicaciones. Volverá a llamarnos.</p></article>
+        </div>
+        <a class="opis-link" href="https://www.google.com/maps?cid=5894273422873205281" target="_blank" rel="noopener">Resumen de opiniones reales · Léelas completas en Google →</a>
+      </section>
     </div>
 
     <!-- 2. Problema -->
