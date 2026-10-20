@@ -579,6 +579,17 @@ footer a:hover{color:var(--ambar)}
     });
   });
 </script>
+<!-- Microsoft Clarity (grabaciones y mapas de calor). Se carga 1,5 s despues de la pagina para no frenarla -->
+<script>
+  window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var t = document.createElement('script'); t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/z0avxg29ns';
+      document.head.appendChild(t);
+    }, 1500);
+  });
+</script>
 </head>
 <body>
 
