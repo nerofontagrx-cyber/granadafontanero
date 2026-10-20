@@ -544,7 +544,7 @@ body.final .confia{display:none}
     if (!atras && pasoActual !== paso) historial.push(pasoActual);
     pasoActual = paso;
     clarity('event', 'paso_' + paso);
-    $('.paso').forEach(function(p){ p.classList.toggle('on', p.dataset.paso === String(paso)); });
+    $$('.paso').forEach(function(p){ p.classList.toggle('on', p.dataset.paso === String(paso)); });
     var n = ORDEN.indexOf(String(paso));
     var num = n < 0 ? 1 : Math.min(n+1, 4);
     var fin = paso === 5 || paso === 'otro';
