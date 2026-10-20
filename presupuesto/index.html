@@ -254,6 +254,17 @@ h1,h2{font-family:var(--f-tit);font-weight:400;letter-spacing:.005em;line-height
     });
   });
 </script>
+<!-- Microsoft Clarity (grabaciones y mapas de calor). Se carga 1,5 s despues de la pagina para no frenarla -->
+<script>
+  window.clarity = window.clarity || function(){ (window.clarity.q = window.clarity.q || []).push(arguments); };
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var t = document.createElement('script'); t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/z0avxg29ns';
+      document.head.appendChild(t);
+    }, 1500);
+  });
+</script>
 </head>
 <body>
 
@@ -509,6 +520,7 @@ h1,h2{font-family:var(--f-tit);font-weight:400;letter-spacing:.005em;line-height
   function siguiente(){
     var k = ORDEN.filter(function(x){ return !estado[x]; })[0] || null;
     activa = k;
+    clarity('event', 'paso_' + (k || 'completo'));
     pintar();
     if (k === 'zona') prepararSiguiente();
     var destino = k ? $('#ln-'+k) : $('#hoja');
@@ -700,6 +712,7 @@ h1,h2{font-family:var(--f-tit);font-weight:400;letter-spacing:.005em;line-height
       ln.classList.remove('temblar'); void ln.offsetWidth; ln.classList.add('temblar');
       return;
     }
+    clarity('event', 'envia_parte');
     var url = urlWa();
     $('#reintento').href = url;
     var s = $('#sello'), h = $('#hoja');
