@@ -610,7 +610,7 @@ body{padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
       var b = el('div', 'burbuja ' + tam,
         '<span class="est">★★★★★</span><b>' + esc(r[0]) + '</b>' + (tam === 'p' ? '' : '<span class="t">' + esc(r[1]) + '</span>'));
       var ancho = nube.clientWidth, alto = nube.clientHeight, carril = n % 2;
-      var dur = tam === 'g' ? 10 : tam === 'm' ? 9 : 8;
+      var dur = 10;
       b.style.cssText = 'right:' + Math.round((carril ? 18 : 0) + Math.random() * 10) + 'px;--dur:' + dur + 's;--alto:' + alto + 'px;--dx:' + Math.round(Math.random()*30 - 15) + 'px;--op:' + (tam === 'g' ? .9 : tam === 'm' ? .75 : .6);
       nube.appendChild(b);
       setTimeout(function(){ b.remove(); }, dur * 1000 + 100);
